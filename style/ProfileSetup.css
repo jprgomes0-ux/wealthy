@@ -1,0 +1,110 @@
+/* Container principal */
+
+.profile-container-wealthy {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 2rem;
+  background: var(--card-background);
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Título */
+
+.profile-title-wealthy {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Labels */
+
+.profile-label-wealthy {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Inputs */
+
+.profile-input-wealthy {
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+  background-color: var(--card-background);
+  color: var(--text-main);
+}
+
+.profile-input-wealthy:focus {
+  box-shadow: 0 0 0 4px rgba(16,185,129,0.5);
+}
+
+/* Select */
+
+.profile-select-wealthy {
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+  background-color: var(--card-background);
+  color: var(--text-main);
+}
+
+.profile-select-wealthy:focus {
+  box-shadow: 0 0 0 4px rgba(16,185,129,0.5);
+}
+
+/* Botão */
+
+.profile-button-wealthy {
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+
+.profile-button-wealthy:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(16,185,129,0.5);
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+}
+
+/* Campos obrigatórios */
+
+.profile-required {
+  color: red;
+  margin-left: 3px;
+}
+
+/* Erros */
+
+.profile-error {
+  color: red;
+  font-size: 0.85rem;
+}
+
+.profile-input-error {
+  border: 1px solid red;
+}
+
+/* Mensagem sucesso */
+
+.profile-success {
+  text-align: center;
+  color: green;
+  font-weight: 500;
+}

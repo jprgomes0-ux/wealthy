@@ -1,0 +1,86 @@
+.dashboard-wealthy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.dashboard-cards-wealthy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.dashboard-card-wealthy {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card-wealthy:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px var(--shadow);
+}
+
+.profit-positive-wealthy {
+  color: var(--primary);
+}
+
+.profit-negative-wealthy {
+  color: var(--error);
+}
+
+.asset-list-wrapper-wealthy {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.asset-card-wealthy {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.asset-card-wealthy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--shadow);
+}
+
+.btn-delete-wealthy {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--error);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-delete-wealthy:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(239,68,68,0.5);
+}
+
+.loader-wealthy {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

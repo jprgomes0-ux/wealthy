@@ -1,0 +1,300 @@
+/* ======================
+   VARIÁVEIS CSS
+   ====================== */
+:root {
+  --primary-gradient-start: #10b879;
+  --primary-gradient-end: #06a77d;
+  --primary-shadow-light: rgba(16,185,129,0.15);
+  --primary-shadow-strong: rgba(16,185,129,0.35);
+  --text-main: #111827;
+  --text-secondary: #6b7280;
+  --warning-color: #f59e0b;
+  --border-radius-lg: 24px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 12px;
+  --transition-fast: 0.35s ease;
+  --bg-light: #f9fafb;
+  --bg-lighter: #ffffff;
+}
+
+/* ======================
+   UTILITÁRIOS
+   ====================== */
+.flex-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ======================
+   CONTAINER PRINCIPAL
+   ====================== */
+.user-profile-wealthy {
+  max-width: 640px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: linear-gradient(145deg, var(--bg-lighter), var(--bg-light));
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  position: relative;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+/* ======================
+   HEADER E AVATAR
+   ====================== */
+.user-profile-header-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-profile-avatar {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--primary-shadow-light);
+  border: 3px solid rgba(16,185,129,0.2);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border 0.3s;
+}
+.user-profile-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px var(--primary-shadow-strong);
+  border-color: rgba(16,185,129,0.5);
+}
+
+.user-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-profile-welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.user-profile-welcome h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary-gradient-start);
+  margin: 0;
+}
+
+.user-profile-welcome p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* RESPONSIVO: empilha avatar acima do texto */
+@media (max-width: 500px) {
+  .user-profile-header-horizontal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .user-profile-welcome {
+    text-align: center;
+  }
+}
+
+/* ======================
+   INPUTS COM ÍCONES
+   ====================== */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* entre label e input */
+  margin-bottom: 20px; /* espaço entre este input e o próximo */
+}
+
+.input-wrapper label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  color: var(--text-main);
+  font-size: 14px;
+  outline: none;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.03);
+  height: 38px;
+  line-height: 1;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-wrapper input:focus {
+  border-color: var(--primary-gradient-start);
+  box-shadow: 0 0 16px rgba(16,185,129,0.3);
+}
+
+.input-wrapper .input-icon {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--primary-gradient-start);
+  pointer-events: none;
+}
+
+/* ======================
+   BOTÕES
+   ====================== */
+.user-profile-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-profile-actions .btn-wealthy {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 14px 0;
+  border-radius: var(--border-radius-md);
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 18px var(--primary-shadow-light);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+.user-profile-actions .btn-wealthy:hover:not(:disabled),
+.user-profile-actions .btn-wealthy:focus-visible {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 26px var(--primary-shadow-strong);
+  outline: none;
+}
+.user-profile-actions .btn-wealthy:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Botão “Sair” diferenciado */
+.user-profile-actions .btn-wealthy.logout {
+  background: #f3f4f6;
+  color: #111827;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.user-profile-actions .btn-wealthy.logout:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* ======================
+   SEÇÕES E FEEDBACK
+   ====================== */
+.user-profile-section {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.user-profile-section label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-profile-section p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.user-profile-edit p {
+  font-size: 12px;
+  color: var(--warning-color);
+  font-weight: 500;
+}
+
+.feedback-toast {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-gradient-start);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feedback-toast.show {
+  animation: toast-slide 0.4s forwards;
+}
+
+@keyframes toast-slide {
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  50% { opacity: 1; transform: translate(-50%, -10px); }
+  100% { opacity: 1; transform: translate(-50%, -40px); }
+}
+
+/* ======================
+   RESPONSIVO
+   ====================== */
+@media (max-width: 768px) {
+  .user-profile-wealthy {
+    padding: 28px 16px;
+  }
+  .user-profile-avatar {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 500px) {
+  .user-profile-wealthy {
+    margin: 24px auto;
+    padding: 24px 12px;
+  }
+  .user-profile-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .user-profile-actions .btn-wealthy {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

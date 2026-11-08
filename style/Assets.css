@@ -1,0 +1,130 @@
+/* --- Botões Wealthy --- */
+.btn-wealthy {
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+
+.btn-wealthy:hover:not(:disabled) {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(16,185,129,0.5);
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+}
+
+.btn-wealthy:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- AssetSearch Wealthy --- */
+.asset-search-wealthy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.asset-search-wealthy input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.2s, background 0.2s, box-shadow 0.2s;
+  background-color: var(--card-background);
+  color: var(--text-main);
+  outline: none; /* remove o outline padrão */
+}
+
+.asset-search-wealthy input:focus {
+  border-color: var(--primary);
+  background-color: rgba(16,185,129,0.05);
+  box-shadow: 0 0 0 4px rgba(5,150,105,0.2); /* igual ao Brokers */
+}
+
+.asset-search-results-wealthy {
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.asset-search-item-wealthy {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  color: var(--text-main);
+}
+
+.asset-search-item-wealthy:hover {
+  background-color: rgba(16,185,129,0.1);
+  color: var(--foreground);
+}
+
+/* --- AssetList Wealthy --- */
+.asset-list-wealthy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.asset-card-wealthy {
+  position: relative;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: var(--card-background);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+}
+
+.asset-card-wealthy:hover {
+  background-color: rgba(16,185,129,0.05);
+  box-shadow: 0 4px 12px rgba(16,185,129,0.15);
+}
+
+/* --- AssetItem Wealthy --- */
+.asset-item-card-wealthy {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.asset-item-card-wealthy:hover {
+  background-color: rgba(16,185,129,0.05);
+  box-shadow: 0 4px 12px rgba(16,185,129,0.1);
+}
+
+.asset-item-card-wealthy label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.asset-item-card-wealthy input,
+.asset-item-card-wealthy select {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border 0.2s, box-shadow 0.2s;
+  background-color: var(--card-background);
+  color: var(--text-main);
+}
+
+.asset-item-card-wealthy input:focus,
+.asset-item-card-wealthy select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+}
