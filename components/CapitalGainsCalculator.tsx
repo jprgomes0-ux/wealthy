@@ -58,6 +58,10 @@ export default function CapitalGainsCalculator() {
   const { status: fxStatus, reset: resetFx, clearRow: clearFx } = useEcbRates(txs, setTxs)
 
   const result = useMemo(() => computeGains(txs, settings.year), [txs, settings.year])
+  // "Falta o câmbio" só aparece se o pedido ao BCE falhou (e não enquanto ainda está a carregar)
+  const warnings = result.warnings.filter(
+    w => !w.msg.startsWith("Falta o câmbio") || fxStatus[w.row]?.startsWith("Sem ligação")
+  )
   const englob = (Math.max(result.balance, 0) * (Number(settings.marginal) || 0)) / 100
 
   const thisYear = new Date().getFullYear()
@@ -228,9 +232,9 @@ export default function CapitalGainsCalculator() {
         </label>
         {importMsg && <p className={importMsg.ok ? "calc-import-ok" : "calc-import-err"} role="status">{importMsg.text}</p>}
 
-        {(result.warnings.length > 0 || result.shortTerm > 0) && (
+        {(warnings.length > 0 || result.shortTerm > 0) && (
           <div className="calc-warn">
-            {result.warnings.map((w, k) => <span key={k}>Linha {w.row + 1}: {w.msg}</span>)}
+            {warnings.map((w, k) => <span key={k}>Linha {w.row + 1}: {w.msg}</span>)}
             {result.shortTerm > 0 && (
               <span>
                 {result.shortTerm} {result.shortTerm === 1 ? "lote foi detido" : "lotes foram detidos"} menos de 365 dias. Se o

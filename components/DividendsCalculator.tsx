@@ -50,6 +50,10 @@ export default function DividendsCalculator() {
 
   const { status: fxStatus, reset: resetFx, clearRow: clearFx } = useEcbRates(divs, setDivs)
   const result = useMemo(() => computeDividends(divs, year), [divs, year])
+  // "Falta o câmbio" só aparece se o pedido ao BCE falhou (e não enquanto ainda está a carregar)
+  const warnings = result.warnings.filter(
+    w => !w.msg.startsWith("Falta o câmbio") || fxStatus[w.row]?.startsWith("Sem ligação")
+  )
 
   const thisYear = new Date().getFullYear()
   const years = Array.from({ length: 9 }, (_, k) => thisYear - k)
@@ -196,9 +200,9 @@ export default function DividendsCalculator() {
         </label>
         {importMsg && <p className={importMsg.ok ? "calc-import-ok" : "calc-import-err"} role="status">{importMsg.text}</p>}
 
-        {result.warnings.length > 0 && (
+        {warnings.length > 0 && (
           <div className="calc-warn">
-            {result.warnings.map((w, k) => <span key={k}>Linha {w.row + 1}: {w.msg}</span>)}
+            {warnings.map((w, k) => <span key={k}>Linha {w.row + 1}: {w.msg}</span>)}
           </div>
         )}
 
